@@ -1,11 +1,11 @@
 <?php
 
-namespace Silktide\Reposition\Phinx;
+namespace Lexide\Reposition\Phinx;
 
 use Phinx\Util\Util;
-use Silktide\Reposition\Metadata\EntityMetadata;
-use Silktide\Reposition\Metadata\EntityMetadataProviderInterface;
-use Silktide\Reposition\Phinx\Exception\MigrationGenerationException;
+use Lexide\Reposition\Metadata\EntityMetadata;
+use Lexide\Reposition\Metadata\EntityMetadataProviderInterface;
+use Lexide\Reposition\Phinx\Exception\MigrationGenerationException;
 
 /**
  * MigrationGenerator

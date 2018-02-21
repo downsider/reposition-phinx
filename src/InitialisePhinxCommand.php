@@ -1,6 +1,6 @@
 <?php
 
-namespace Silktide\Reposition\Phinx;
+namespace Lexide\Reposition\Phinx;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -55,7 +55,7 @@ class InitialisePhinxCommand extends Command
 
     protected function configure()
     {
-        $this->setName("silktide:reposition:initialise-phinx")
+        $this->setName("lexide:reposition:initialise-phinx")
             ->setDescription("Generate phinx.yml using the same credentials as reposition");
     }
 

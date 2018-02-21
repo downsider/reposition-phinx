@@ -1,7 +1,10 @@
 <?php
 
-namespace Silktide\Reposition\Phinx\Test;
-use Silktide\Reposition\Phinx\GenerateMigrationsCommand;
+namespace Lexide\Reposition\Phinx\Test;
+use Lexide\Reposition\Phinx\GenerateMigrationsCommand;
+use Lexide\Reposition\Phinx\MigrationGenerator;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * GenerateMigrationsCommandTest
@@ -19,18 +22,18 @@ class GenerateMigrationsCommandTest extends \PHPUnit_Framework_TestCase
 
     public function setup()
     {
-        $this->generator = \Mockery::mock("Silktide\\Reposition\\Phinx\\MigrationGenerator");
+        $this->generator = \Mockery::mock(MigrationGenerator::class);
         $this->generator->shouldIgnoreMissing(false);
 
         $this->output = [];
 
-        $this->outputInterface = \Mockery::mock("Symfony\\Component\\Console\\Output\\OutputInterface");
+        $this->outputInterface = \Mockery::mock(OutputInterface::class);
         $this->outputInterface->shouldReceive("writeln")->andReturnUsing(function($message) {
             $this->output[] = $message;
             return null;
         });
 
-        $this->inputInterface = \Mockery::mock("Symfony\\Component\\Console\\Input\\InputInterface");
+        $this->inputInterface = \Mockery::mock(InputInterface::class);
         $this->inputInterface->shouldIgnoreMissing(false);
 
     }

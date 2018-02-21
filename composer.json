@@ -1,11 +1,11 @@
 {
-  "name": "silktide/reposition-phinx",
-  "description": "A module for silktide/reposition that creates Phinx SQL database migrations from entity metadata",
+  "name": "lexide/reposition-phinx",
+  "description": "A module for Lexide Reposition that creates Phinx SQL database migrations from entity metadata",
   "license": "MIT",
-  "homepage": "https://github.com/silktide/reposition-phinx",
+  "homepage": "https://github.com/lexide/reposition-phinx",
   "require": {
     "php": ">=5.5.0",
-    "silktide/reposition": "^1.5.1",
+    "lexide/reposition": "^2.0.0",
     "robmorgan/phinx": "^0.5",
     "symfony/console": "^2.8"
   },
@@ -16,16 +16,16 @@
   },
   "autoload": {
     "psr-4": {
-      "Silktide\\Reposition\\Phinx\\": "src",
-      "Silktide\\Reposition\\Phinx\\Test\\": "test"
+      "Lexide\\Reposition\\Phinx\\": "src",
+      "Lexide\\Reposition\\Phinx\\Test\\": "test"
     }
   },
   "suggest": {
-    "downsider/puzzle-di": "Auto configured dependency injection for modules"
+    "lexide/puzzle-di": "Auto configured dependency injection for modules"
   },
   "extra": {
-    "downsider-puzzle-di": {
-      "silktide/syringe": {
+    "lexide/puzzle-di": {
+      "lexide/syringe": {
         "path": "config/syringe.yml"
       }
     }

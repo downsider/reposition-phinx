@@ -1,11 +1,13 @@
 <?php
 
-namespace Silktide\Reposition\Phinx\Test;
+namespace Lexide\Reposition\Phinx\Test;
+use Lexide\Reposition\Metadata\EntityMetadataProviderInterface;
+use Mockery\Mock;
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
 use org\bovigo\vfs\vfsStreamWrapper;
-use Silktide\Reposition\Metadata\EntityMetadata;
-use Silktide\Reposition\Phinx\MigrationGenerator;
+use Lexide\Reposition\Metadata\EntityMetadata;
+use Lexide\Reposition\Phinx\MigrationGenerator;
 
 /**
  * MigrationGeneratorTest
@@ -14,17 +16,17 @@ class MigrationGeneratorTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var \Mockery\Mock|\Silktide\Reposition\Metadata\EntityMetadataProviderInterface
+     * @var Mock|EntityMetadataProviderInterface
      */
     protected $metadataProvider;
 
     /**
-     * @var \Mockery\Mock|\Silktide\Reposition\Metadata\EntityMetadata
+     * @var Mock|EntityMetadata
      */
     protected $metadata;
 
     /**
-     * @var \Mockery\Mock|\Silktide\Reposition\Metadata\EntityMetadata
+     * @var Mock|EntityMetadata
      */
     protected $intermediaryMetadata;
 
@@ -34,12 +36,12 @@ class MigrationGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function setup()
     {
-        $this->metadata = \Mockery::mock("Silktide\\Reposition\\Metadata\\EntityMetadata");
+        $this->metadata = \Mockery::mock(EntityMetadata::class);
         $this->metadata->shouldReceive("getCollection")->andReturn("test", "one");
 
-        $this->intermediaryMetadata = \Mockery::mock("Silktide\\Reposition\\Metadata\\EntityMetadata");
+        $this->intermediaryMetadata = \Mockery::mock(EntityMetadata::class);
 
-        $this->metadataProvider = \Mockery::mock("Silktide\\Reposition\\Metadata\\EntityMetadataProviderInterface");
+        $this->metadataProvider = \Mockery::mock(EntityMetadataProviderInterface::class);
         $this->metadataProvider->shouldReceive("getEntityMetadata")->andReturn($this->metadata);
         $this->metadataProvider->shouldReceive("getEntityMetadataForIntermediary")->andReturn($this->intermediaryMetadata);
 
@@ -133,7 +135,7 @@ class MigrationGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Silktide\Reposition\Phinx\Exception\MigrationGenerationException
+     * @expectedException \Lexide\Reposition\Phinx\Exception\MigrationGenerationException
      * @expectedExceptionMessageRegExp #.*primary key.*could not be found.*#
      */
     public function testExceptionOnMissingPrimaryKey()

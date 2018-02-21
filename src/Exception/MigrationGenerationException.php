@@ -1,6 +1,6 @@
 <?php
 
-namespace Silktide\Reposition\Phinx\Exception;
+namespace Lexide\Reposition\Phinx\Exception;
 
 /**
  * MigrationGenerationException

@@ -1,6 +1,6 @@
 <?php
 
-namespace Silktide\Reposition\Phinx;
+namespace Lexide\Reposition\Phinx;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -26,7 +26,7 @@ class GenerateMigrationsCommand extends Command
 
     protected function configure()
     {
-        $this->setName("silktide:reposition:generate-migrations")
+        $this->setName("lexide:reposition:generate-migrations")
             ->setDescription("Create migration files for entities, ready to be used with Phinx")
             ->addArgument("entities", InputArgument::IS_ARRAY | InputArgument::REQUIRED, "The list of entities you want to generate migration files for");
     }
